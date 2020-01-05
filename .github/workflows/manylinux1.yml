@@ -1,11 +1,10 @@
-name: Build Python Windows wheels
+name: Build Python manylinux1 wheels
 
 on:
   push:
     branches:
       - master
   create:
-
 
 jobs:
   build:
