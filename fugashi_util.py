@@ -3,6 +3,7 @@ import platform
 import site
 import subprocess
 import glob
+import shutil
 
 def mecab_config(com="mecab-config"):
     output = subprocess.check_output([com, "--inc-dir", "--libs-only-L", "--libs-only-l"])
@@ -51,8 +52,14 @@ def mecab_config_linux_build():
     """Build from source on Linux-like as a last resort."""
     base_dir = os.getcwd()
     os.chdir("build/mecab")
+
+    # remove directory if it was cached
+    if os.path.isdir("mecab"):
+        shutil.rmtree("mecab")
+
     subprocess.run(["git", "clone", "--depth=1", "https://github.com/taku910/mecab"])
     os.chdir("mecab/mecab")
+
     if not os.path.isfile("mecab-config"):
         for f in ["aclocal.m4", "config.h.in", "configure", "Makefile.in", "src/Makefile.in"]:
             subprocess.run(["touch", f])
