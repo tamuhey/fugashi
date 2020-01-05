@@ -67,6 +67,8 @@ def mecab_config_linux_build():
         subprocess.run(["./configure", "--enable-static", "--disable-shared", "--with-charset=utf8"])
     os.chdir("src")
     subprocess.run(["make", "libmecab.la"])
+    # XXX test to let it pick up the header file
+    subprocess.run(["make", "install"])
     src_dir = "build/mecab/mecab/mecab/src"
     lib_dir = "libmecab"
 
