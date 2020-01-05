@@ -64,7 +64,7 @@ def mecab_config_linux_build():
         for f in ["aclocal.m4", "config.h.in", "configure", "Makefile.in", "src/Makefile.in"]:
             subprocess.run(["touch", f])
             subprocess.run(["sleep", "1"])
-        subprocess.run(["./configure", "--disable-static", "--enable-shared", "--with-charset=utf8"])
+        subprocess.run(["./configure", "--enable-static", "--disable-shared", "--with-charset=utf8"])
     os.chdir("src")
     subprocess.run(["make", "libmecab.la"])
     src_dir = "build/mecab/mecab/mecab/src"
