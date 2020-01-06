@@ -10,17 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Set up Python
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.8
     - name: Build manylinux Python wheels
-      uses: RalfG/python-wheels-manylinux-build@v0.1
-      with:
-        python-versions: 'cp37-cp37m cp38-cp38'
-        build-requirements: cython
+      uses: polm/mecab-manylinux1-wheel-builder@v0.1.0
     - name: Upload Wheels
       uses: actions/upload-artifact@v1
       with: 
         name: manylinux-wheels
-        path: wheelhouse
+        path: manylinux-wheels
