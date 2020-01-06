@@ -1,4 +1,4 @@
-name: Build manylinux-2010 wheels
+name: Build manylinux1 wheels
 
 on:
   push:
