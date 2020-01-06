@@ -84,7 +84,10 @@ def mecab_config_linux_build():
         data_files = [(lib_dir, glob.glob(src_dir + "/.libs/libmecab.*"))]
 
     # This seems to be necessary in practice on manylinux1
-    os.symlink("libmecab.so", "libmecab.so.2")
+    try:
+        os.symlink("libmecab.so", "libmecab.so.2")
+    except:
+        pass # it already exists, no problem
 
     if platform.platform().startswith("Darwin"):
         lib_arg = "-rpath {}".format(lib_dir)
