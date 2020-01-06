@@ -15,5 +15,5 @@ jobs:
     - name: Upload Wheels
       uses: actions/upload-artifact@v1
       with: 
-        name: manylinux-wheels
-        path: manylinux-wheels
+        name: manylinux1-wheels
+        path: manylinux1-wheels
