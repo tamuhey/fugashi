@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build manylinux Python wheels
-      uses: polm/mecab-manylinux1-wheel-builder@v0.1.0
+      uses: polm/mecab-manylinux1-wheel-builder@v0.1.1
     - name: Upload Wheels
       uses: actions/upload-artifact@v1
       with: 
